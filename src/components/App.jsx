@@ -1,7 +1,6 @@
 import { Profile } from './profile/Profile';
 import { Statistics } from './statistics/Statistics';
 import { FriendList } from './friendList/FriendList';
-import { FriendListItem } from './friendList/friendListItem/FriendListItem';
 import { TransactionHistory } from './transactionHistory/TransactionHistory';
 
 import user from '../json/user.json';
@@ -23,16 +22,7 @@ export const App = () => {
       <Statistics title="Upload stats" stats={statistics} />
       <Statistics stats={statistics} />
 
-      <FriendList>
-        {friends.map(({ id, name, isOnline = false, avatar }) => (
-          <FriendListItem
-            key={id}
-            isOnline={isOnline}
-            name={name}
-            avatar={avatar}
-          />
-        ))}
-      </FriendList>
+      <FriendList friends={friends} />
 
       <TransactionHistory transactions={transactions} />
     </main>
