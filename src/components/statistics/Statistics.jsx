@@ -1,8 +1,7 @@
-export const Statistics = ({ title = '', stats }) => {
-  function getRandomHSL() {
-    return `hsl(${Math.floor(Math.random() * 360)}, 80%, 50%)`;
-  }
+import { getRandomHSL } from '../../js/getRandomHSL';
+import PropTypes from 'prop-types';
 
+export const Statistics = ({ title = '', stats }) => {
   return (
     <section className="statistics">
       {title && <h2 className="title global-title">{title}</h2>}
@@ -21,4 +20,9 @@ export const Statistics = ({ title = '', stats }) => {
       </ul>
     </section>
   );
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.number,
 };

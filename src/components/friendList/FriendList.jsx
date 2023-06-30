@@ -1,19 +1,13 @@
-import { FriendListItem } from './friendListItem/FriendListItem';
-import friends from '../../json/friends.json';
+import PropTypes from 'prop-types';
 
-export const FriendList = () => {
+export const FriendList = ({ children }) => {
   return (
     <section className="friends-section">
-      <ul className="friend-list global-list">
-        {friends.map(({ id, name, isOnline = false, avatar }) => (
-          <FriendListItem
-            key={id}
-            isOnline={isOnline}
-            name={name}
-            avatar={avatar}
-          />
-        ))}
-      </ul>
+      <ul className="friend-list global-list">{children}</ul>
     </section>
   );
+};
+
+FriendList.propTypes = {
+  children: PropTypes.element.isRequired,
 };

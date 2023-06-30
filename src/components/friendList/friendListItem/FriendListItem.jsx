@@ -1,4 +1,6 @@
-export const FriendListItem = ({ name, isOnline, avatar }) => {
+import PropTypes from 'prop-types';
+
+export const FriendListItem = ({ name, isOnline = false, avatar }) => {
   return (
     <li>
       <span
@@ -9,4 +11,10 @@ export const FriendListItem = ({ name, isOnline, avatar }) => {
       <p className="friend-name">{name}</p>
     </li>
   );
+};
+
+FriendListItem.propTypes = {
+  avatar: PropTypes.string,
+  name: PropTypes.string,
+  isOnline: PropTypes.bool,
 };
